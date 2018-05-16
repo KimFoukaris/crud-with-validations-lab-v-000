@@ -8,7 +8,7 @@ class Song < ActiveRecord::Base
 
   def title_author_name_not_duplicate_in_same_year
     if title.present? && !title.uniq
-      errors.add(:title, "can't be released by same artist in same year") 
+      errors.add(:title, "can't be released by same artist in same year")
     end
   end
 
