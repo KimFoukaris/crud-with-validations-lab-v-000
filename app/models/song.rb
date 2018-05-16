@@ -1,6 +1,6 @@
 class Song < ActiveRecord::Base
   validates :title, presence: true
-  validates :name, uniqueness: { scope: :year,
+  validates :title, uniqueness: { scope: :year,
     message: "should happen once per year" }
   validates :release_year, presence: true, if: :released
   validates :artist_name, presence: true
