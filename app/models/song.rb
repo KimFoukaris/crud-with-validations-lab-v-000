@@ -1,6 +1,7 @@
 class Song < ActiveRecord::Base
   validates :title, presence: true
-  #validates :title, uniqueness: true, if: :artist_name_not_duplicate_in_same_year
+  validates :name, uniqueness: { scope: :year,
+    message: "should happen once per year" }
   validates :release_year, presence: true, if: :released
   validates :artist_name, presence: true
   validate :release_year_cannot_be_after_current_year
